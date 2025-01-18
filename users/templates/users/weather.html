@@ -1,0 +1,48 @@
+{% extends "users/menu.html" %}
+
+{% block content %}
+<h1 class="text-center my-4">Météo pour {{ city }}</h1>
+
+<form method="get" action="{% url 'users-weather' %}" class="d-flex justify-content-center mb-4">
+    <input type="text" name="city" placeholder="Entrez une ville" value="{{ city }}" class="form-control w-50">
+    <button type="submit" class="btn btn-primary ms-2">Rechercher</button>
+</form>
+
+{% if weather_data %}
+    <div class="weather-info mb-4">
+        <p><strong>Température Actuelle :</strong> {{ weather_data.main.temp }} °C</p>
+        <p><strong>Température Moyenne :</strong> {{ weather_data.temp_moyenne }} °C</p>
+        <p><strong>Humidité :</strong> {{ weather_data.main.humidity }} %</p>
+        <p><strong>Vent :</strong> {{ weather_data.wind.speed }} m/s</p>
+    </div>
+{% else %}
+    <p class="text-danger">Aucune donnée disponible pour la ville "{{ city }}".</p>
+{% endif %}
+
+{% if meteo_data %}
+    <h3 class="my-4">Données Météorologiques</h3>
+    <table class="table table-bordered table-striped table-hover table-responsive">
+        <thead>
+            <tr class="table-dark">
+                <th>Date</th>
+                <th>Température Moyenne (°C)</th>
+                <th>Durée d’Ensoleillement (h)</th>
+                <th>Irradiation Solaire (kWh/m²)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for day in meteo_data %}
+            <tr>
+                <td>{{ day.date }}</td>
+                <td>{{ day.temp_moyenne }}</td>
+                <td>{{ day.sunshine_in_hours_minutes }}</td>
+                <td>{{ day.irradiance_in_kWh }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Aucune donnée météorologique disponible.</p>
+{% endif %}
+
+{% endblock %}

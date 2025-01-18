@@ -1,0 +1,206 @@
+{% extends "users/menu.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Créer un nouveau projet{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Créer un nouveau projet</h1>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+
+        <!-- Rubrique Installation -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Rubrique Installation</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.surface_habitable.id_for_label }}">{{ form.surface_habitable.label }}</label>
+                    {{ form.surface_habitable|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.hauteur_sous_plafond.id_for_label }}">{{ form.hauteur_sous_plafond.label }}</label>
+                    {{ form.hauteur_sous_plafond|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.volume_total.id_for_label }}">{{ form.volume_total.label }}</label>
+                    {{ form.volume_total|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.types_de_murs.id_for_label }}">{{ form.types_de_murs.label }}</label>
+                    {{ form.types_de_murs|add_class:"form-select" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.coefficient_transmission_murs.id_for_label }}">{{ form.coefficient_transmission_murs.label }}</label>
+                    {{ form.coefficient_transmission_murs|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.coefficient_transmission_toit.id_for_label }}">{{ form.coefficient_transmission_toit.label }}</label>
+                    {{ form.coefficient_transmission_toit|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.coefficient_transmission_plancher.id_for_label }}">{{ form.coefficient_transmission_plancher.label }}</label>
+                    {{ form.coefficient_transmission_plancher|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.orientation.id_for_label }}">{{ form.orientation.label }}</label>
+                    {{ form.orientation|add_class:"form-select" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.epaisseur_des_isolants.id_for_label }}">{{ form.epaisseur_des_isolants.label }}</label>
+                    {{ form.epaisseur_des_isolants|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.surface_fenetres.id_for_label }}">{{ form.surface_fenetres.label }}</label>
+                    {{ form.surface_fenetres|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.coefficient_transmission_vitrages.id_for_label }}">{{ form.coefficient_transmission_vitrages.label }}</label>
+                    {{ form.coefficient_transmission_vitrages|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.taux_renouvellement_air.id_for_label }}">{{ form.taux_renouvellement_air.label }}</label>
+                    {{ form.taux_renouvellement_air|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.type_ventilation.id_for_label }}">{{ form.type_ventilation.label }}</label>
+                    {{ form.type_ventilation|add_class:"form-select" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.facteur_transmission_solaire.id_for_label }}">{{ form.facteur_transmission_solaire.label }}</label>
+                    {{ form.facteur_transmission_solaire|add_class:"form-control" }}
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Rubrique Usages Énergétiques -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Rubrique Usages Énergétiques</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.temperature_hiver.id_for_label }}">{{ form.temperature_hiver.label }}</label>
+                    {{ form.temperature_hiver|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.temperature_ete.id_for_label }}">{{ form.temperature_ete.label }}</label>
+                    {{ form.temperature_ete|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.consommation_chauffage_climatisation.id_for_label }}">{{ form.consommation_chauffage_climatisation.label }}</label>
+                    {{ form.consommation_chauffage_climatisation|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.temperature_eau_chaude.id_for_label }}">{{ form.temperature_eau_chaude.label }}</label>
+                    {{ form.temperature_eau_chaude|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.consommation_eau_chaude.id_for_label }}">{{ form.consommation_eau_chaude.label }}</label>
+                    {{ form.consommation_eau_chaude|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.surface_eclairage.id_for_label }}">{{ form.surface_eclairage.label }}</label>
+                    {{ form.surface_eclairage|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.puissance_ampoules.id_for_label }}">{{ form.puissance_ampoules.label }}</label>
+                    {{ form.puissance_ampoules|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.duree_eclairage.id_for_label }}">{{ form.duree_eclairage.label }}</label>
+                    {{ form.duree_eclairage|add_class:"form-control" }}
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Liste des équipements électriques -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Liste des équipements électriques</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.puissance_moyenne.id_for_label }}">{{ form.puissance_moyenne.label }}</label>
+                    {{ form.puissance_moyenne|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.duree_utilisation.id_for_label }}">{{ form.duree_utilisation.label }}</label>
+                    {{ form.duree_utilisation|add_class:"form-control" }}
+                </div>
+
+            </div>
+        </fieldset>
+
+        <!-- Données Économiques -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Données Économiques</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.prix_energie.id_for_label }}">{{ form.prix_energie.label }}</label>
+                    {{ form.prix_energie|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.prix_gaz.id_for_label }}">{{ form.prix_gaz.label }}</label>
+                    {{ form.prix_gaz|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.budget_maximal.id_for_label }}">{{ form.budget_maximal.label }}</label>
+                    {{ form.budget_maximal|add_class:"form-control" }}
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Priorités utilisateur -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Priorités utilisateur</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-check">
+                        {{ form.reduction_couts_initiaux|add_class:"form-check-input" }}
+                        <label class="form-check-label" for="{{ form.reduction_couts_initiaux.id_for_label }}">
+                            {{ form.reduction_couts_initiaux.label }}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-check">
+                        {{ form.maximisation_independance_energetique|add_class:"form-check-input" }}
+                        <label class="form-check-label" for="{{ form.maximisation_independance_energetique.id_for_label }}">
+                            {{ form.maximisation_independance_energetique.label }}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-check">
+                        {{ form.optimisation_efficacite_energetique|add_class:"form-check-input" }}
+                        <label class="form-check-label" for="{{ form.optimisation_efficacite_energetique.id_for_label }}">
+                            {{ form.optimisation_efficacite_energetique.label }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Données Météorologiques -->
+        <fieldset class="mb-5 shadow p-4 rounded border">
+            <legend class="h4 mb-3 text-primary">Données Météorologiques</legend>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.temperature_exterieure_moyenne.id_for_label }}">{{ form.temperature_exterieure_moyenne.label }}</label>
+                    {{ form.temperature_exterieure_moyenne|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.duree_ensoleillement.id_for_label }}">{{ form.duree_ensoleillement.label }}</label>
+                    {{ form.duree_ensoleillement|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.irradiation_solaire_annuelle.id_for_label }}">{{ form.irradiation_solaire_annuelle.label }}</label>
+                    {{ form.irradiation_solaire_annuelle|add_class:"form-control" }}
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Boutons d'action -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Enregistrer le projet</button>
+            <a href="{% url 'users-liste_projects' %}" class="btn btn-secondary btn-lg">Annuler</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

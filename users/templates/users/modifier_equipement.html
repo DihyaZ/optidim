@@ -1,0 +1,13 @@
+{% extends "users/menu.html" %}
+
+{% block title %}Modifier l'équipement{% endblock %}
+
+{% block content %}
+<h1>Modifier l'équipement</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="{% url 'users-gestion_equipements' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

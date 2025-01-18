@@ -1,0 +1,60 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block title %} Home Page {% endblock title %}
+
+{% block content %}
+<div class="hero-section text-center text-white" style="background-image: url('{% static 'core/images/bg_solar.png' %}'); background-size: cover; background-position: center; height: 100vh;">
+    <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+        <h1 class="display-3 font-weight-bold">Welcome to Solar Energy Solutions</h1>
+        <p class="lead mt-4">Power your world with sustainable and affordable solar energy.</p>
+        <a href="#services" class="btn btn-primary btn-lg mt-3">Explore Our Services</a>
+    </div>
+</div>
+
+<section id="services" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="{% static 'core/images/service1.png' %}" alt="Service 1" class="img-fluid mb-3">
+                <h4>Solar Panel Installation</h4>
+                <p>High-quality solar panel installations for residential and commercial properties.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'core/images/service2.png' %}" alt="Service 2" class="img-fluid mb-3">
+                <h4>Energy Consulting</h4>
+                <p>Get expert advice on energy efficiency and sustainability solutions.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/service3.png' %}" alt="Service 3" class="img-fluid mb-3">
+                <h4>Maintenance & Support</h4>
+                <p>Ensure optimal performance with our maintenance and support services.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Clients Say</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p class="mb-0">Solar Energy Solutions transformed our energy needs. We've saved so much!</p>
+                    <footer class="blockquote-footer">John Doe, Homeowner</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p class="mb-0">The team was professional, and the installation process was seamless.</p>
+                    <footer class="blockquote-footer">Sarah Smith, Business Owner</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center text-white py-4" style="background-color: #333;">
+    <p class="mb-0">&copy; 2025 Solar Energy Solutions. All rights reserved.</p>
+</footer>
+{% endblock content %}

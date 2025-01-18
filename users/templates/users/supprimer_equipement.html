@@ -1,0 +1,13 @@
+{% extends "users/menu.html" %}
+
+{% block title %}Supprimer l'équipement{% endblock %}
+
+{% block content %}
+<h1>Supprimer l'équipement</h1>
+<p>Êtes-vous sûr de vouloir supprimer cet équipement : <strong>{{ equipement.nom }}</strong> ?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+    <a href="{% url 'users-gestion_equipements' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

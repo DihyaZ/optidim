@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}OptiDim{% endblock %}</title>
+    <!-- ======= Styles ====== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container_dash">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="iconlogo">
+                           <img src="{% static 'core/images/logo_optidim.svg' %}" alt="Logo" class="img-fluid">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'users-dashboard' %}">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'users-add_project' %}">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Nouveau Projet</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'users-liste_projects' %}">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="title">Mes Projets</span>
+                    </a>
+                </li>
+
+                 <li>
+                    <a href="{% url 'users-gestion_equipements' %}">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Mes Equipements</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'users-weather' %}">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Données Méteo</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'users-profile' %}">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="assets/imgs/customer01.jpg" alt="">
+                </div>
+            </div>
+
+            <!-- ====== Bloc pour le contenu spécifique ====== -->
+            <div class="content">
+                {% block content %}
+                <!-- Contenu des pages -->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</html>

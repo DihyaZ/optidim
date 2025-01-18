@@ -1,0 +1,67 @@
+{% extends "users/menu.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h1 class="mb-4 text-center">Résumé du Projet</h1>
+
+    <!-- Section Informations du Projet -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Informations du Projet</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Surface habitable :</strong> {{ project.surface_habitable }} m²</p>
+                    <p><strong>Budget maximal :</strong> {{ project.budget_maximal }} €</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Calculs -->
+    <h2 class="mb-3">Calculs</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Pertes Thermiques & Gains Solaires</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Pertes thermiques :</strong> {{ pertes_thermiques|floatformat:2 }} W</li>
+                        <li><strong>Gains solaires :</strong> {{ gains_solaires|floatformat:2 }} kWh</li>
+                        <li><strong>Consommation d'éclairage :</strong> {{ consommation_eclairage|floatformat:2 }} kWh</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Calculs supplémentaires</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><strong>Énergie totale consommée :</strong> {{ energy_total|floatformat:2 }} Wh</li>
+                        <li><strong>Puissance des panneaux solaires :</strong>
+                            {% if puissance_panneau %}
+                                {{ puissance_panneau|floatformat:2 }} W
+                            {% else %}
+                                <span class="text-muted">Non calculable (vérifiez l'irradiation solaire annuelle)</span>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Retour -->
+    <div class="text-center">
+        <a href="{% url 'users-liste_projects' %}" class="btn btn-secondary">Retour à la liste des projets</a>
+    </div>
+</div>
+
+{% endblock %}

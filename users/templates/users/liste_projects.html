@@ -1,0 +1,39 @@
+{% extends "users/menu.html" %}
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+{% block title %}Mes projets{% endblock %}
+
+{% block content %}
+<h1>Mes projets</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Surface habitable (m²)</th>
+            <th>Hauteur sous plafond (m)</th>
+            <th>Volume total (m³)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.surface_habitable }}</td>
+            <td>{{ project.hauteur_sous_plafond }}</td>
+            <td>{{ project.volume_total }}</td>
+            <td>
+                <!-- Ajouter des boutons pour modifier ou supprimer -->
+                  <a href="{% url 'users-edit_project' project.id %}" class="text-warning" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <!-- Icône pour Supprimer -->
+                <a href="{% url 'users-delete_project' project.id %}" class="text-danger" title="Supprimer">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+    <a href="{% url 'users-project_summary' project.id %}" class="btn btn-success btn-sm">Calculer</a>            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

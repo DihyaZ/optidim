@@ -140,8 +140,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Define where static files should be collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Keep STATICFILES_DIRS for local development
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, "static"),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
